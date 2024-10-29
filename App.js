@@ -49,8 +49,8 @@ class App extends Component {
 
         this.addCelestrakSets();
         this.setState({
-            attacker_station: this.engine.addObserver(30, -90, 0.370, 'attack'),
-            defender_station: this.engine.addObserver(28.5427, -80.6490, 0.370, 'ground'),
+            attacker_station: this.engine.addObserver(35.4682001, 139.625743, 18.25, 'attack'),
+            defender_station: this.engine.addObserver(40.561501, 140.9130674, 11, 'ground'),
             current_date: this.state.selected_range[0]
         })
         setInterval(this.handleTimer, 1000);
@@ -248,7 +248,7 @@ class App extends Component {
                             }</span>
                         <br></br>
                         <label className="label h6">Jammer Coordinates&nbsp;</label>
-                        <CoordinateInput className='CoordinateInput' value='30° 00′ 00″ N 090° 00′ 00″ W' placeholder='30° 00′ 00″ N 090° 00′ 00″ W' placeholderChar={null}
+                        <CoordinateInput className='CoordinateInput' value='35.28.05 N 139.37.33 E' placeholder='35.28.05 N 139.37.33 E' placeholderChar={null}
                             onChange={this.updateAttackerCoords}
                         />
                     </div>
@@ -265,7 +265,7 @@ class App extends Component {
                                 }</span>
                             <br></br>
                     <label className="label h6 ">Ground Station Coordinates&nbsp;</label>
-                    <CoordinateInput className='CoordinateInput' value='28° 34′ 24″ N 080° 39′ 03″ W' placeholder='28° 34′ 24″ N 080° 39′ 03″ W' placeholderChar={null}
+                    <CoordinateInput className='CoordinateInput' value='40.33.41 N 140.54.47 E' placeholder='40.33.41 N 140.54.47 E' placeholderChar={null}
                         onChange={this.updateDefenderCoords}
                     />
                     <div className="DefenderPower">
