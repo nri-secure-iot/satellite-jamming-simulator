@@ -279,19 +279,17 @@ class App extends Component {
     }
 
     addCelestrakSets = () => {
-        this.engine.loadLteFileStations(getCorsFreeUrl('http://www.celestrak.com/NORAD/elements/active.txt'), 0xffffff, {render: false})
-            .then(stations => {
-                this.setState({stations});
-                var defaultTarget = stations.find(obj => {
-                    return obj.name?.includes("STARLINK");
-                });
-                if(defaultTarget != null){
-                    this.handleSearchResultClick(defaultTarget);
-                }
-                
-                //this.engine.addSatellite(stations[0], 0xFF00FF, 50)
-                //this.processQuery(stations);
-            });
+        const text = `ALOS-4 (DAICHI-4)       
+1 60182U 24123A   24303.24547362  .00004815  00000+0  65112-3 0  9999
+2 60182  97.9220  37.9713 0001198  97.4285 262.7063 14.79478906 17764`
+        const stations = this.engine._addTleFileStations(text, 0xffffff, { render: false });
+        this.setState({stations});
+        var defaultTarget = stations.find(obj => {
+            return obj.name?.includes("ALOS");
+        });
+        if(defaultTarget != null){
+            this.handleSearchResultClick(defaultTarget);
+        }
 
     }
 
